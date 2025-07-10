@@ -1,16 +1,16 @@
 const express = require('express');
 const cors = require('cors');
-const stripe = require('stripe')('');
+require('dotenv').config();
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware - SVARBU EILIŠKUMAS!
 app.use(cors());
 app.use(express.json());
 app.use(express.static('.')); // Serve static files from current directory
 
-// Debug middleware
+
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path}`);
   next();
