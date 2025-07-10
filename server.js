@@ -134,11 +134,6 @@ app.get('/test-stripe', async (req, res) => {
   }
 });
 
-// Catch all routes for SPA
-app.get('*', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
-
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
